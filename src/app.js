@@ -19,10 +19,11 @@ import LatoBold from 'Fonts/lato-bold/lato-bold.css'; // 700 / BOLD
 // import LatoHeavy from 'Fonts/lato-heavy/lato-heavy.css';  // 800
 // import LatoBlack from 'Fonts/lato-black/lato-black.css';  // 900 
 
+import FontAwesome from 'font-awesome/css/font-awesome.css';
 /* Load Styles */ 
 import styles from './css/main.css';
 import Vue from 'vue/dist/vue.js';
-import VueTippy from 'vue-tippy';
+
 import App from './App.vue';
 
 new Vue({
@@ -31,5 +32,5 @@ new Vue({
   components: { App }
 });
 
-Vue.use(VueTippy);
+
 

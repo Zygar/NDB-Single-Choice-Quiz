@@ -3,7 +3,7 @@
         <header class="primary-header">
             <p v-if="!answerMode">For each cost item below, select the best classification to describe the cost. More than one classification may apply to the same cost item.</p>
             <p v-if="answerMode">
-                Out of {{totalAnswers}}, you got {{yourAnswers.correct}} right, {{yourAnswers.incorrect}} wrong and you missed {{yourAnswers.missed}}
+                Out of {{totalAnswers}} possible answers, you got <span class="answer-tag  tag-correct">{{yourAnswers.correct}} answers correct</span>, <span class="answer-tag  tag-incorrect">{{yourAnswers.incorrect}} answers incorrect</span> and you <span class="answer-tag  tag-missed">missed {{yourAnswers.missed}} answers.</span>
             </p>
         </header>
         <section class="questions">
@@ -33,6 +33,8 @@
 import eventHub from './eventHub.js';
 import Question from './components/Question.vue';
 import data from './content/_data.js';
+import smoothScroll from 'smoothscroll';
+
 export default {
     name: 'app', 
     components: { Question  },
@@ -62,7 +64,8 @@ export default {
     methods: { 
         enterCheckAnswerMode () {
             if (this.allAnswered == true) {
-                this.answerMode = true;    
+                this.answerMode = true;
+                smoothScroll(0,0);
             }
             else {alert("Please answer all the questions first!")}
         },

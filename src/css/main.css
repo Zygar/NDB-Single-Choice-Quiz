@@ -157,26 +157,27 @@ body {
     line-height: 48px;
     cursor: pointer;
     vertical-align: middle;
+    font-family: "FontAwesome";
 }
 
 .answer-checkbox:checked + .answer-label::before {
-    content: "⚫️";
+    content: "\f111";
     background-color: var(--light-blue);
     color: #fff;
 }
 
 .answer-correct .answer-checkbox:checked + .answer-label::before {
-    content: "✔️️";
+    content: "\f00c";
     background-color: var(--light-green);
 }
 
 .answer-incorrect .answer-checkbox:checked + .answer-label::before {
-    content: "✖️️️";
+    content: "\f00d";
     background-color: var(--light-red);
 }
 
 .answer-missed .answer-checkbox + .answer-label::before {
-    content: "❕";
+    content: "\f06a";
     background-color: var(--light-yellow);
 }
 .answer-label {
@@ -198,3 +199,34 @@ body {
     color: #fff;
 }
 
+.answer-tag {
+    background-color: var(--off-white);
+    padding: 4px;
+    border-radius:4px;
+    white-space: nowrap;
+}
+
+.answer-tag::before {
+    font-family: "FontAwesome";
+    margin-right: 4px;
+}
+
+.tag-incorrect {
+    background-color: var(--light-red)
+}
+.tag-incorrect::before {
+    content: "\f00d";
+}
+.tag-correct {
+    background-color: var(--light-green);
+}
+.tag-correct::before {
+    content: "\f00c";
+}
+.tag-missed {
+    background-color: var(--light-yellow);
+}
+.tag-missed::before {
+    content: "\f06a";
+    color: var(--off-black);
+}
