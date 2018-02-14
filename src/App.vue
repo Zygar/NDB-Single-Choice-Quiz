@@ -23,9 +23,6 @@
             </div>
             <footer class="question-footer">
                 <button class="button" v-if="!answerMode" @click="enterCheckAnswerMode()">Check Answers</button>    
-                <p v-if="answerMode">
-                    Out of {{totalAnswers}}, you got {{yourAnswers.correct}} right, {{yourAnswers.incorrect}} wrong and you missed {{yourAnswers.missed}}
-                </p>
                 <button class="button" v-if="answerMode" @click="resetQuiz()">Reset and try again</button>    
             </footer>
        </section>
