@@ -1,30 +1,33 @@
 export default {
     questions: [
         {
-            questionText: "Production manager's salary",
-            correctAnswerIndices: [0, 4]
-        },
-         {
-            questionText: "Sales commission paid to sales staff",
+            questionText: "Idle time due to factory computer network downtime",
             correctAnswerIndices: [1]
         },
          {
-            questionText: "Depreciation of general office equipment (marketing  department)",
+            questionText: "Fabric used to cover the seats of chairs",
+            correctAnswerIndices: [1]
+        },
+         {
+            questionText: "Office Rent",
+            correctAnswerIndices: [0]
+        },{
+            questionText: "Glue and staples used to fix the fabric to the seats of chairs",
             correctAnswerIndices: [1]
         },{
-            questionText: "Advertising cost",
+            questionText: "Factory Insurance",
             correctAnswerIndices: [1]
         },{
-            questionText: "Wages paid to  assembly-line workers",
-            correctAnswerIndices: [0,3]
-        },{
-            questionText: "Cost of delivering products to customers",
+            questionText: "Cost of repairing factory machinery",
             correctAnswerIndices: [1]
         },{
-            questionText: "Cost of factory equipment maintenance",
-            correctAnswerIndices: [0,4]
+            questionText: "Commision paid to sales team",
+            correctAnswerIndices: [0]
+        },{
+            questionText: "Cost of assembly-line workers",
+            correctAnswerIndices: [1]
         },
 
     ],
-    answers: ["Period Cost", "Product Cost", "Direct Material Cost", "Direct Labour Cost", "Manufacturing Overhead Cost"]
+    answers: ["Period Cost", "Product Cost"]
 }
