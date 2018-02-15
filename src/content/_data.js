@@ -26,8 +26,7 @@ export default {
         },{
             questionText: "Cost of assembly-line workers",
             correctAnswerIndices: [1]
-        },
-
+        }
     ],
     answers: ["Period Cost", "Product Cost"]
 }

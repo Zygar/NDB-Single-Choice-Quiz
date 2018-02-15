@@ -19,7 +19,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        // exclude: /node_modules/, // Uncomment this for production.
+        exclude: /node_modules/, // Uncomment this for production.
         use: {
           loader: 'babel-loader',
           options: {
