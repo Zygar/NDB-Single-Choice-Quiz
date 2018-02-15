@@ -3,7 +3,7 @@
         :isRightAnswer="isRightAnswer"
         :answerMode="answerMode"
         :class="'answer-' + answerStatus.answerState">
-        <input class="answer-checkbox" type="checkbox" :disabled="answerMode" :id="uuid" v-model="answerStatus.isChecked"> <label class="answer-label" :for="uuid"><span class="label-text">{{answer}}</span></label>
+        <input class="answer-checkbox" :name="'q-'+questionIndex" type="radio" :disabled="answerMode" :id="uuid" v-model="answerStatus.isChecked" :value="answer"> <label class="answer-label" :for="uuid"><span class="label-text">{{answer}}</span></label>
     </div>
 </template>
 
@@ -32,7 +32,8 @@
                 return {
                     isChecked: this.answerStatus.isChecked, 
                     index: this.index,
-                    questionIndex: this.questionIndex
+                    questionIndex: this.questionIndex,
+                    uuid: this.uuid
                 };
             }
         },
@@ -40,7 +41,7 @@
             let answerStatus = {
                 isCorrect: false,
                 answerState: "unanswered",
-                isChecked: false
+                isChecked: null
             }
             return {answerStatus};
         },
@@ -49,13 +50,13 @@
                 // Triggers on switch to Answer Mode
                 if (this.answerMode == true) {
                     console.log("Time to check the answers");
-                    if (this.answerStatus.isChecked == true && this.isRightAnswer == true) {
+                    if (this.answerStatus.isChecked != null && this.isRightAnswer == true) {
                         this.answerStatus.answerState = "correct";
                         eventHub.$emit('correctAnswer')
-                    } else if (this.answerStatus.isChecked != true && this.isRightAnswer == true) {
+                    } else if (this.answerStatus.isChecked != null && this.isRightAnswer == true) {
                         this.answerStatus.answerState = "missed"
                         eventHub.$emit('missedAnswer')
-                    } else if (this.answerStatus.isChecked == true && this.isRightAnswer != true) {
+                    } else if (this.answerStatus.isChecked != null && this.isRightAnswer != true) {
                         this.answerStatus.answerState = "incorrect"
                         eventHub.$emit('incorrectAnswer')
                     } else {
@@ -63,7 +64,7 @@
                     }
                 } else {
                     console.log("Time to reset...")
-                    this.answerStatus.isChecked = false; 
+                    this.answerStatus.isChecked = null; 
                     this.answerStatus.answerState = "unanswered";
                 }
                 
@@ -71,7 +72,17 @@
             checkedAnswerDetails (data) {
                 eventHub.$emit('answerChecked', data);
             }
-        }
+        },
+        mounted() {
+            // When an answer is checked (in Answer.vue), we emit an event called "answerChecked"
+            eventHub.$on('answerChecked', (data) => {
+                if(this.questionIndex == data.questionIndex && this.uuid != data.uuid && data.isChecked != null) {
+                    console.log(this.questionIndex, data.questionIndex)
+                    console.log(`You changed the other one, ${data.uuid}. I am ${this.uuid}`)
+                    this.answerStatus.isChecked = null;
+                }
+            })
+        },
     }
 </script>
 

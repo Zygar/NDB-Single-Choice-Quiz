@@ -35,8 +35,9 @@
             return model
         },
         mounted() {
+            // When an answer is checked (in Answer.vue), we emit an event called "answerChecked"
             eventHub.$on('answerChecked', (data) => {
-                if(data.questionIndex == this.questionIndex && data.isChecked == true){
+                if(data.questionIndex == this.questionIndex && data.isChecked != null){
                     this.answerCount ++
                 } else if (data.questionIndex == this.questionIndex && data.isChecked == false) {
                     this.answerCount --

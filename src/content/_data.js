@@ -21,7 +21,7 @@ export default {
             questionText: "Cost of repairing factory machinery",
             correctAnswerIndices: [1]
         },{
-            questionText: "Commision paid to sales team",
+            questionText: "Commission paid to sales team",
             correctAnswerIndices: [0]
         },{
             questionText: "Cost of assembly-line workers",
