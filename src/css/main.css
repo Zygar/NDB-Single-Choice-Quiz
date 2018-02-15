@@ -177,8 +177,9 @@ body {
 }
 
 .answer-missed .answer-checkbox + .answer-label::before {
-    content: "\f06a";
-    background-color: var(--light-yellow);
+    content: "\f00c";
+    color:#807777;
+    /*background-color: var(--light-yellow);*/
 }
 .answer-label {
     display: block;

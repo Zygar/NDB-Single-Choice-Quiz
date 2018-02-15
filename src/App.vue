@@ -3,7 +3,7 @@
         <header class="primary-header">
             <p v-if="!answerMode">For each of Sit Down Limited’s costs below, select them as either a period or product cost. Click Submit once you’ve had a go at classifying all of them to see the answers</p>
             <p v-if="answerMode">
-                Out of {{totalAnswers}} possible answers, you got <span class="answer-tag  tag-correct">{{yourAnswers.correct}} answers correct</span>, <span class="answer-tag  tag-incorrect">{{yourAnswers.incorrect}} answers incorrect</span> and you <span class="answer-tag  tag-missed">missed {{yourAnswers.missed}} answers.</span>
+                Out of {{totalAnswers}} possible answers, you got <span class="answer-tag  tag-correct">{{yourAnswers.correct}} answers correct</span> and <span class="answer-tag  tag-incorrect">{{yourAnswers.incorrect}} answers incorrect.</span> </span>
             </p>
         </header>
         <section class="questions">

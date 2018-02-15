@@ -53,7 +53,7 @@
                     if (this.answerStatus.isChecked != null && this.isRightAnswer == true) {
                         this.answerStatus.answerState = "correct";
                         eventHub.$emit('correctAnswer')
-                    } else if (this.answerStatus.isChecked != null && this.isRightAnswer == true) {
+                    } else if (this.answerStatus.isChecked == null && this.isRightAnswer == true) {
                         this.answerStatus.answerState = "missed"
                         eventHub.$emit('missedAnswer')
                     } else if (this.answerStatus.isChecked != null && this.isRightAnswer != true) {
